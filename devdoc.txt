@@ -1,0 +1,16 @@
+node install
+angular cli install 
+    - npm install -g @angular/cli
+    - https://angular.io/cli
+
+check angular version
+    - ng --version
+
+Run angular
+    - ng serve
+    - ng serve --port PORT_NUMBER
+    - ng build --prod
+
+https://www.npmjs.com/package/ngx-toastr
+https://www.youtube.com/watch?v=hIvq-NzkRXM
+https://ngx-toastr.vercel.app/

@@ -1,0 +1,3 @@
+<select class="todo-dd-action" (change)="onTodoStatusChange($event, singleTodo)">
+    <option *ngFor="let status of todoStatus" value="{{status.id}}" [selected]="status.id == singleTodo.status ? true: false">{{status.status}}</option>
+</select>

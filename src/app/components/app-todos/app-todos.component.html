@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-sm-4">
+            <app-create-todo (addTodo)="createTodo($event)"></app-create-todo>
+        </div>
+        <div class="col-sm-8">
+            <app-list-todo [allTodosDataObj]="todos" (deleteTodo)="todoDelete($event)" (statusTodo)="todoStatus($event)" (deleteTodos)="deleteTodoList()"></app-list-todo>
+        </div>
+    </div>
+</div>

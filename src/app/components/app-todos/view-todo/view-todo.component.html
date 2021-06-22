@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-8">
+            <label>Status:</label>
+            <span class="text-success" *ngIf="theTodo.status == 1"><strong> Completed</strong></span>
+            <span class="text-secondary" *ngIf="theTodo.status == 0"><strong> New</strong></span>
+            <span class="text-primary" *ngIf="theTodo.status == 2"><strong> In-Progress</strong></span>
+            <span class="text-warning" *ngIf="theTodo.status == 3"><strong> On-Hold</strong></span>
+        </div>
+        <div class="col-sm-4">
+            <a routerLink="/" class="btn btn-primary pull-right">Back</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="mt-3">{{theTodo.title}}</h3>
+            <hr/>
+            <p class="mt-3">{{theTodo.details}}</p>
+        </div>
+    </div>
+</div>

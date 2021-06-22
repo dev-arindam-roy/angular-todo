@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-sm-8">
+        <h4>Todos ({{allTodosDataObj.length}}) 
+            <span *ngIf="allTodosDataObj.length > 0">
+                <span class="text-secondary todo-tag">New: {{newCount}}</span> |
+                <span class="text-primary todo-tag">In-Progress: {{inProgressCount}}</span> | 
+                <span class="text-warning todo-tag">Hold: {{onHoldCount}}</span> | 
+                <span class="text-success todo-tag">Completed: {{completedCount}}</span>
+            </span>
+        </h4>
+    </div>
+    <div class="col-sm-4">
+        <button type="button" *ngIf="allTodosDataObj.length > 0" class="btn btn-danger pull-right" (click)="deleteAllTodos()">Delete All</button>
+    </div>
+</div>
+
+<div *ngIf="allTodosDataObj.length > 0; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <table class="table table-bordered table-sm mt-1">
+        <thead class="table-light">
+            <tr>
+                <th class="text-center" style="width: 50px;">SL.</th>
+                <th>Todo Title</th>
+                <th style="width: 120px;">Action</th>
+                <th style="width: 60px;" class="text-center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of allTodosDataObj; index as i">
+                <td class="text-center sl-bg">{{i+1}}.</td>
+                <td (click)="todoDetails(i)" class="todo-hover"><app-single-todo class="todo-hover" [singleTodo]="todo" [dataIndex]="i"></app-single-todo></td>
+                <td class="sl-bg">
+                    <app-status-todo [singleTodo]="todo" [dataIndex]="i" (statusTodo)="todoStatus($event)"></app-status-todo>
+                </td>
+                <td class="text-center sl-bg">
+                    <app-delete-todo [singleTodo]="todo" [dataIndex]="i" (deleteTodo)="todoDelete($event)"></app-delete-todo>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+
+<ng-template #elseBlock>
+    <div class="alert alert-info">No Todos Found!</div>
+</ng-template>

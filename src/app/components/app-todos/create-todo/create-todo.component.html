@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-header"><strong>Create Todos</strong></div>
+        <div class="card-body" style="background-color:#f8f9fa;">
+            <div class="mb-3">
+                <label for="todoTitle" class="form-label">Title/Name: <span class="text-danger"><em>*</em></span></label>
+                <input type="text" [(ngModel)]="todoTitle" name="todoTitle" class="form-control" id="todoTitle" placeholder="Set a todo">
+            </div>
+            <div class="mb-3">
+                <label for="todoDetails" class="form-label">Any Details: </label>
+                <textarea [(ngModel)]="todoDetails" name="todoDetails" class="form-control" id="todoDetails" rows="6" placeholder="Todo in Details"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="todoTitle == ''">Add New Todo</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,5 @@
+<label class="todo-title" [ngClass]="{ 'text-primary' : singleTodo.status == 2, 'text-warning' : singleTodo.status == 3, 'text-success' : singleTodo.status == 1 }">{{singleTodo.title}}</label>
+<p class="todo-desc" *ngIf="singleTodo.details.length > 0; else elseBlock">{{singleTodo.details.length > 110 ? (singleTodo.details | slice:0:110) + '...' : singleTodo.details}}</p>
+<ng-template #elseBlock>
+    <p class="py-1"></p>
+</ng-template>
